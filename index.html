@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calletano Restaurant | Menú Criollo y Marino en Máncora</title>
+    <meta name="description" content="Restaurante en Máncora especializado en pescados, mariscos y comida criolla. Menú del día económico, especiales de domingo y almuerzos familiares. 📍 Barrio Nicaragua.">
+    <meta name="keywords" content="Restaurante Máncora, Menú del día, Comida Criolla, Ceviche, Almuerzo Máncora, Calletano">
+    
+    <meta property="og:title" content="Calletano Restaurant - El Sabor de Máncora">
+    <meta property="og:description" content="Pescados, mariscos y el mejor menú criollo del distrito.">
+    <meta property="og:image" content="https://calletano-restaurant.web.app/fondo.jpg">
+    <meta property="og:url" content="https://calletano-restaurant.web.app/">
+    <meta property="og:type" content="restaurant.restaurant">
+    
+    <link rel="icon" href="fondo.jpg" type="image/jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Calletano Restaurant",
+      "image": "https://calletano-restaurant.web.app/fondo.jpg",
+      "description": "Restaurante de comida criolla y marina en Máncora.",
+      "priceRange": "$$",
+      "servesCuisine": "Peruana, Marina, Criolla",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ampliación La Molina, Barrio Nicaragua S/N",
+        "addressLocality": "Máncora",
+        "addressRegion": "Piura",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-4.1078", 
+        "longitude": "-81.0475" 
+      },
+      "telephone": "+51949523901",
+      "url": "https://calletano-restaurant.web.app/",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-calletano">
+        <div class="container">
+            <a class="navbar-brand" href="#">Calletano</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#menu-dia">Menú del Día</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#favoritos">Favoritos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#domingo">Domingos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resenas">Reseñas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visitanos">Ubícanos</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="nav-link btn-nav-carta" href="carta.html">NUESTRA CARTA</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <img 
+            src="fondo-desktop.jpg" 
+            srcset="fondo-movil.jpg 600w, 
+                    fondo-tablet.jpg 1200w, 
+                    fondo-desktop.jpg 1920w"
+            sizes="100vw"
+            class="hero-bg-img"
+            alt="Fondo del restaurante Calletano en Máncora"
+        >
+
+        <div class="container position-relative z-2 text-center">
+            <div id="status-restaurante" class="d-inline-block mb-3"></div>
+
+            <h1 class="fw-bold mb-2">Calletano Restaurant</h1>
+            <p class="lead mb-4">EL MEJOR SABOR DE MÁNCORA</p>
+            <a href="carta.html" class="btn btn-hero">
+                <i class="fas fa-utensils me-2"></i> VER CARTA Y PRECIOS
+            </a>
+        </div>
+
+        <div class="wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+        </div>
+    </header>
+
+    <section id="menu-dia">
+        <div class="container text-center">
+            <h2 id="main-menu-title" class="section-title">Menú del Día 🍽️</h2>
+            
+            <div class="row justify-content-center g-4">
+                <div id="col-entradas" class="col-md-5">
+                    <div class="menu-dia-card">
+                        <div class="card-header-custom header-entradas">
+                            <h3>ENTRADAS</h3>
+                        </div>
+                        <div class="card-body-custom">
+                            <p class="plato-dia-texto" id="menu-entrada">
+                                Disfruta nuestras entradas criollas: Sopa, Tequeños, Ceviche y más.
+                                <span class="d-none">Cocinando menú de hoy...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="col-segundos" class="col-md-5">
+                    <div class="menu-dia-card">
+                        <div id="header-segundos" class="card-header-custom header-segundos">
+                            <h3>SEGUNDOS</h3>
+                        </div>
+                        <div class="card-body-custom">
+                            <p class="plato-dia-texto" id="menu-segundo">
+                                Platos de fondo variados: Ají de gallina, Pescado Frito, Pollo al horno y más.
+                                <span class="d-none">Cocinando menú de hoy...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h5 class="text-muted text-uppercase small ls-2 fw-bold mb-3">Bebida Incluida</h5>
+                <p class="display-6 mt-2" id="menu-refresco">Refresco de temporada</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="favoritos" class="bg-playa">
+        <div class="container">
+            <h2 class="text-center section-title">Nuestros Platos Favoritos</h2>
+            <p class="text-center text-muted mb-4">Lo más pedido por nuestros clientes en Máncora</p>
+            
+            <div id="favoritos-container" class="row g-4">
+                <div class="col-md-12 text-center text-muted fst-italic">
+                    Preparando la lista de nuestros mejores ceviches y sudados...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="domingo">
+        <div class="container">
+            <h2 class="text-center section-title">Especiales de Domingo</h2>
+            <div id="domingo-container" class="row g-4">
+                 <div class="col-md-12 text-center text-muted fst-italic">
+                    Descubre nuestros platos especiales de fin de semana.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resenas" class="bg-light overflow-hidden">
+        <div class="container"> 
+            <h2 class="text-center section-title mb-5">Opiniones de Clientes</h2>
+            
+            <div class="infinite-carousel">
+                <div class="review-group" id="reviews-group-1">
+                    <p class="text-muted ps-4">Leyendo reseñas...</p>
+                </div>
+                <div class="review-group" id="reviews-group-2" aria-hidden="true"></div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="https://g.page/r/CWgDl1hLH4UtEBM/review" target="_blank" class="btn btn-outline-primary rounded-pill px-4 py-3 fw-bold">
+                    <i class="fab fa-google me-2"></i> Déjanos tu opinión
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="visitanos" class="text-center bg-visitanos">
+        <div class="container">
+            <h2 class="section-title mb-5">Visítanos en Máncora</h2>
+            
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                    <p class="fs-5">
+                        <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                        <strong>Dirección:</strong> Ampliación La Molina, Barrio Nicaragua S/N, Máncora, Perú
+                    </p>
+                    <p class="fs-5">
+                        <i class="fas fa-phone text-success me-2"></i>
+                        <strong>Pedidos:</strong> +51 949 523 901
+                    </p>
+                </div>
+            </div>
+
+            <div class="mapa-marco mb-5 mx-auto" style="max-width: 800px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.592402821676!2d-81.04322182516242!3d-4.103033045192315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9036a2dbaaaaaaa9%3A0x2d851f4b58970368!2sCALLETANO%20RESTAURANT!5e0!3m2!1ses!2spe!4v1765653168399!5m2!1ses!2spe" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" title="Mapa de ubicación Calletano Restaurant"></iframe>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+                <a id="link-fb" href="#" target="_blank" class="btn btn-social btn-outline-fb">
+                    <i class="fab fa-facebook me-2"></i> Facebook
+                </a>
+                <a id="link-ig" href="#" target="_blank" class="btn btn-social btn-outline-ig">
+                    <i class="fab fa-instagram me-2"></i> Instagram
+                </a>
+                <a href="https://maps.app.goo.gl/9eViDnE7AuAue1f77" target="_blank" class="btn btn-social btn-mapa">
+                    <i class="fas fa-map-marker-alt me-2"></i> Cómo llegar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-0 fw-bold">© 2025 Calletano Restaurant - Máncora</p>
+            <p class="small text-white-50">Desarrollado para el mejor sabor norteño.</p>
+        </div>
+    </footer>
+
+    <div class="fixed-bottom p-3 d-flex justify-content-end">
+        <a id="btn-wsp" href="#" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">import('./app.js');</script>
+</body>
+</html>

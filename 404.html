@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada | Calletano Restaurant</title>
+    <link rel="icon" href="fondo.jpg" type="image/jpg">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Estilos específicos para la página de error */
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .error-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--naranja-logo);
+            text-shadow: 4px 4px 0px white;
+            line-height: 1;
+        }
+        .error-icon {
+            font-size: 5rem;
+            color: var(--cyan-logo);
+            margin-bottom: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-calletano">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Calletano</a>
+        </div>
+    </nav>
+
+    <header style="height: 100vh; min-height: 100vh;">
+        <img 
+            src="fondo-desktop.jpg" 
+            srcset="fondo-movil.jpg 600w, fondo-tablet.jpg 1200w, fondo-desktop.jpg 1920w"
+            sizes="100vw"
+            class="hero-bg-img"
+            alt="Fondo Calletano"
+        >
+
+        <div class="container error-container text-white">
+            <div>
+                <div class="error-icon">
+                    <i class="fas fa-fish"></i>
+                    <i class="fas fa-question"></i>
+                </div>
+                <h1 class="error-code">404</h1>
+                <h2 class="fw-bold mb-3 display-5">¡Ups! Este plato no existe</h2>
+                <p class="lead mb-5 fw-bold text-light" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+                    Parece que la marea te llevó a un lugar desconocido.<br>
+                    Esa página no está en nuestro menú.
+                </p>
+                
+                <a href="index.html" class="btn btn-hero btn-lg">
+                    <i class="fas fa-home me-2"></i> VOLVER AL RESTAURANTE
+                </a>
+            </div>
+        </div>
+
+        <div class="wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+        </div>
+    </header>
+
+</body>
+</html>

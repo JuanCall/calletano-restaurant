@@ -1,0 +1,312 @@
+/* ============================================
+   CALLETANO RESTAURANT - HOME PLAYERO
+   Colores: Cyan #0ff1f3, Naranja #e8993d, Amarillo #fffba4
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    /* Tu Paleta Exacta */
+    --cyan-logo: #0ff1f3;
+    --naranja-logo: #e8993d;
+    --amarillo-suave: #fffba4;
+    --amarillo-fuerte: #f6d35f;
+    --blanco: #ffffff;
+    
+    /* Colores Funcionales */
+    --color-texto: #444;
+    --color-oscuro: #2c3e50;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* CORRECCIÓN SCROLL: Evita que la barra tape los títulos al bajar */
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 90px; 
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-texto);
+    background-color: #fffef8;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+/* ============================================
+   NUEVA BARRA DE NAVEGACIÓN (NAVBAR)
+   ============================================ */
+.navbar-calletano {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanco semitransparente */
+    backdrop-filter: blur(10px); /* Efecto vidrio */
+    box-shadow: 0 4px 15px rgba(232, 153, 61, 0.1);
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: var(--naranja-logo) !important;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #555 !important;
+    font-size: 0.95rem;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--naranja-logo) !important;
+}
+
+/* Efecto de subrayado animado al pasar el mouse */
+.nav-link::after {
+    content: ''; display: block; width: 0; height: 3px;
+    background: var(--cyan-logo); transition: width 0.3s;
+    margin: 2px auto 0; border-radius: 2px;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Botón especial "Ver Carta" en el menú */
+.btn-nav-carta {
+    background: var(--naranja-logo);
+    color: white !important;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.btn-nav-carta:hover {
+    background: var(--amarillo-fuerte);
+    color: var(--naranja-logo) !important;
+    transform: translateY(-2px);
+}
+.btn-nav-carta::after { display: none; } /* Sin subrayado */
+
+/* Hamburguesa móvil */
+.navbar-toggler { border: none; box-shadow: none !important; }
+.navbar-toggler:focus { outline: none; }
+
+/* ============================================
+   HEADER / HERO
+   ============================================ */
+header {
+    position: relative;
+    min-height: 550px; /* Un poco más alto para compensar el menú */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 0; 
+}
+
+.hero-bg-img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; filter: brightness(0.6); 
+}
+
+header .container { z-index: 2; }
+
+header h1 {
+    font-size: 3.5rem; /* Ajustado para móviles */
+    text-shadow: 2px 2px 0px var(--naranja-logo);
+    color: white;
+}
+
+header .lead {
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amarillo-suave); text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.btn-hero {
+    background: var(--amarillo-fuerte); color: var(--naranja-logo);
+    font-weight: 800; border: 3px solid white; border-radius: 50px;
+    padding: 14px 35px; transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-decoration: none; display: inline-block;
+}
+.btn-hero:hover {
+    background: white; color: var(--naranja-logo);
+    transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* --- OLAS ANIMADAS --- */
+.wave-container {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; overflow: hidden; line-height: 0; z-index: 1;
+}
+.wave {
+    position: absolute; bottom: 0; left: -100%; width: 400%; height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0 120v-46.29c47.79-22.2 103.59-32.17 158-28 70.36 5.37 136.33 33.31 206.8 37.5 73.84 4.36 147.54-16.88 218.2-35.26 69.27-18 138.3-24.88 209.4-13.08 36.15 6 69.85 17.84 104.45 29.34C989.49 95 1113 134.29 1200 67.53V120z' fill='%23fffef8' opacity='1'/%3E%3C/svg%3E");
+    background-size: 25% 100%; background-repeat: repeat-x;
+}
+.wave1 { opacity: 1; z-index: 3; animation: moveWave1 15s linear infinite; }
+.wave2 { opacity: 0.5; z-index: 2; bottom: 5px; animation: moveWave2 20s linear infinite; }
+.wave3 { opacity: 0.2; z-index: 1; bottom: 10px; animation: moveWave3 25s linear infinite; }
+
+@keyframes moveWave1 { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }
+@keyframes moveWave2 { 0% { transform: translateX(25%); } 100% { transform: translateX(0); } }
+@keyframes moveWave3 { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+section { padding: 80px 0; }
+
+.section-title {
+    color: var(--naranja-logo); position: relative;
+    display: inline-block; margin-bottom: 50px; font-size: 2.5rem;
+}
+.section-title::after {
+    content: ''; display: block; width: 60%; height: 4px;
+    background: var(--cyan-logo); margin: 10px auto 0; border-radius: 2px;
+}
+
+/* ============================================
+   MENÚ DEL DÍA
+   ============================================ */
+#menu-dia .row {
+    display: flex;
+    align-items: stretch;
+}
+
+#col-entradas, #col-segundos { 
+    display: flex; 
+    flex-direction: column;
+}
+
+.menu-dia-card {
+    background: white; 
+    border-radius: 20px; 
+    border: 2px solid var(--amarillo-suave);
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(232, 153, 61, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    display: flex; 
+    flex-direction: column;
+}
+
+.menu-dia-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 40px rgba(232, 153, 61, 0.2); 
+}
+
+.card-header-custom {
+    padding: 15px; text-align: center; font-family: 'Playfair Display'; font-weight: 700;
+    letter-spacing: 1px; font-size: 1.2rem; color: white; flex-shrink: 0;
+}
+.header-entradas { background: var(--amarillo-fuerte); }
+.header-segundos { background: var(--naranja-logo); }
+
+.card-body-custom {
+    padding: 30px; background: var(--amarillo-suave);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; flex-grow: 1;
+}
+.plato-dia-texto {
+    font-size: 1.1rem; font-weight: 600; color: #555; line-height: 1.6; margin: 0;
+}
+#menu-refresco { color: var(--naranja-logo); font-family: 'Playfair Display'; font-style: italic; font-weight: 900; }
+
+/* ============================================
+   FAVORITOS & DOMINGO
+   ============================================ */
+.bg-playa { background: linear-gradient(180deg, #fffef8 0%, var(--amarillo-suave) 100%); }
+.plato-card {
+    border: none; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
+    background: white;
+}
+.plato-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(15, 241, 243, 0.3); }
+.plato-img { height: 200px; object-fit: cover; border-bottom: 4px solid var(--cyan-logo); }
+
+/* ============================================
+   RESEÑAS
+   ============================================ */
+.infinite-carousel {
+    display: flex; overflow: hidden; width: 100%; padding: 20px 0; position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.review-group { display: flex; gap: 20px; padding-right: 20px; animation: scrolling 50s linear infinite; }
+.infinite-carousel:hover .review-group { animation-play-state: paused; }
+
+.review-card {
+    background: white; border-radius: 15px; padding: 25px;
+    min-width: 320px; max-width: 320px;
+    border: 1px solid #eee; border-left: 5px solid var(--naranja-logo);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: transform 0.3s;
+}
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+@keyframes scrolling { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* ============================================
+   VISÍTANOS
+   ============================================ */
+.bg-visitanos { background: linear-gradient(180deg, #f8f9fa 0%, #fffef8 100%); }
+.mapa-marco { border: 5px solid white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+
+.btn-social {
+    border-width: 2px; font-weight: 700; border-radius: 50px;
+    padding: 12px 28px; transition: all 0.3s; text-decoration: none; display: inline-block;
+}
+.btn-outline-fb { color: #1877f2; border-color: #1877f2; }
+.btn-outline-fb:hover { background: #1877f2; color: white; transform: translateY(-2px); }
+.btn-outline-ig { color: #e4405f; border-color: #e4405f; }
+.btn-outline-ig:hover { background: #e4405f; color: white; transform: translateY(-2px); }
+.btn-mapa { background: var(--cyan-logo); color: #333; border: none; }
+.btn-mapa:hover { background: #0dd; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(15, 241, 243, 0.4); }
+
+/* ============================================
+   FOOTER & WHATSAPP
+   ============================================ */
+footer { background: var(--naranja-logo); color: white; padding: 25px 0; border-top: 5px solid var(--amarillo-fuerte); }
+
+#btn-wsp {
+    background: #25d366; color: white; width: 60px; height: 60px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+    animation: pulse 2s infinite; text-decoration: none; transition: transform 0.3s;
+}
+#btn-wsp:hover { transform: scale(1.1); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white; padding: 20px; border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 10px;
+    }
+    .btn-nav-carta { text-align: center; display: block; width: 100%; margin-top: 10px; }
+}
+@media (max-width: 768px) {
+    header { min-height: 450px; }
+    header h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+}
+
+/* ============================================
+   MEJORA UX: SKELETON LOADING
+   ============================================ */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.skeleton {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+    background-size: 1000px 100%;
+}
+
+.skeleton-text { height: 20px; margin-bottom: 10px; border-radius: 4px; }
+.skeleton-img { height: 200px; width: 100%; border-radius: 15px; }
