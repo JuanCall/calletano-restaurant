@@ -1,5 +1,4 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-// AGREGADO: Analytics
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, query, where, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -20,7 +19,7 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-console.log("Sistema Calletano V15 (Analytics Activado)");
+console.log("Sistema Calletano V16 (Título Automático)");
 
 const path = window.location.pathname;
 
@@ -81,17 +80,14 @@ if (path.includes("index.html") || path === "/") {
         const statusDiv = document.getElementById('status-restaurante');
         if (!statusDiv) return;
 
-        // Fecha y Hora Actual
         const ahora = new Date();
         const horaActual = ahora.getHours();
-        const fechaHoy = ahora.toISOString().split('T')[0]; // "2025-01-31"
+        const fechaHoy = ahora.toISOString().split('T')[0];
 
-        // Valores por defecto
         const apertura = config.apertura || 12;
         const cierre = config.cierre || 22;
         const cierreForzado = config.cierreForzado || "";
 
-        // Lógica de Estado
         let estaAbierto = false;
         let mensaje = "";
 
@@ -108,7 +104,6 @@ if (path.includes("index.html") || path === "/") {
             }
         }
 
-        // Renderizar Etiqueta
         if (estaAbierto) {
             statusDiv.innerHTML = `<span class="badge rounded-pill bg-success px-3 py-2 shadow animate__animated animate__fadeIn"><i class="fas fa-door-open me-1"></i> ${mensaje}</span>`;
         } else {
@@ -131,6 +126,7 @@ if (path.includes("index.html") || path === "/") {
         const colEntradas = document.getElementById('col-entradas');
         const colSegundos = document.getElementById('col-segundos');
         const headerSegundos = document.getElementById('header-segundos');
+        
         if (titleEl) titleEl.innerText = d.titulo || "Menú del Día 🍽️";
 
         if (d.modoDomingo) {
@@ -243,6 +239,20 @@ if (path.includes("admin")) {
             if (document.getElementById('input-titulo-menu')) document.getElementById('input-titulo-menu').value = d.titulo || "Menú del Día 🍽️";
             if (document.getElementById('check-modo-domingo')) document.getElementById('check-modo-domingo').checked = d.modoDomingo || false;
         });
+
+        // NUEVA LÓGICA: CAMBIO AUTOMÁTICO DE TÍTULO
+        const checkDomingo = document.getElementById('check-modo-domingo');
+        const inputTitulo = document.getElementById('input-titulo-menu');
+        if (checkDomingo && inputTitulo) {
+            checkDomingo.addEventListener('change', () => {
+                if (checkDomingo.checked) {
+                    inputTitulo.value = "ESPECIALES DE DOMINGO 🍽️";
+                } else {
+                    inputTitulo.value = "Menú del Día 🍽️";
+                }
+            });
+        }
+
         asignarGuardado('btn-save-menu', "menuDiario", () => ({
             entrada: document.getElementById('input-entrada').value,
             segundo: document.getElementById('input-segundo').value,
